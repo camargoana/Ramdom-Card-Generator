@@ -1,44 +1,41 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" type="text/css" href="./styles.css" />
-	</head>
-	<body>
-		<h1 id="theTitle">Hello world title ANA</h1>
-		<p>
-			This is my description, it needs to be long because is supposed to be a paragraph and not a title.
-		</p>
-		<script src="./index.js"></script>
-	</body>
-</html>
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Carta</title>
 </head>
 
 <body>
 
+    <div class="card">
+        <div class="card-top"></div>
+        <div class="card-value"><p></p></div>
+        <div class="card-bottom" ></div>
+    </div>
 
-    <div class="carta">
+    <br/>
+    <div class="button" id="randomButton">
+            CLICK ME! (<span class="counter">10</span>)
+    </div>
+    <div class="inputCard">
+        <div class="label">WIDHT</div>
+        <div class="value">
+            <input value="220px" id="cardWidth" type="text" maxlength="10" >  
+        </div> 
+    </div>
+    <div class="inputCard">
+        <div class="label">HEIGHT</div>
+        <div class="value">
+            <input value="300px" id="cardHeight" type="text" size="10" maxlength="10" >
+        </div>
+    </div>
+    <div class="button" id="resizeButton">
+        RESIZE ME!
+    </div>
 
-        <div id="picaArriba">
-            <span class="pica1"> </span>
-        </div>
-        <div id="medio">
-            <span id="numero" class="numero"> </span>
-        </div>
-        <div id="picaAbajo">
-            <span class="pica2"> </span>
-        </div>
-        <script src="main.js"></script>
+    <script src="index.js"></script>
 </body>
-
 </html>

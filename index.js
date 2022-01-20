@@ -1,59 +1,43 @@
-numero = document.getElementById("numero");
+function randomCard(){
+  var cardNumber = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+  var suit = ["heart", "diamond", "spade", "club"];
 
-let randomCard = () => {
-    //   numero.innerHTML = "";
-
-    let numeroRandom = Math.floor(Math.random() * 12) + 1;
-    let picaRandom = Math.floor(Math.random() * 4) + 1;
-    let carta = document.querySelector(".carta");
-    if (numeroRandom === 10) {
-        numero.innerHTML = "J";
-    } else if (numeroRandom === 11) {
-        numero.innerHTML = "Q";
-    } else if (numeroRandom === 12) {
-        numero.innerHTML = "K";
-    } else if (numeroRandom === 1) {
-        numero.innerHTML = "A";
-    } else {
-        numero.innerHTML = numeroRandom;
-    }
-
-    if (picaRandom === 1) {
-        carta.classList.add("corazon")
-    } else if (picaRandom === 2) {
-        carta.classList.add("diamante")
-    } else if (picaRandom === 3) {
-        carta.classList.add("pica")
-    } else if (picaRandom === 4) {
-        carta.classList.add("trebol")
-    }
-
+  var randomCardNumber = Math.floor(Math.random() * cardNumber.length);
+  var randomSuitNumber = Math.floor(Math.random() * suit.length);
+    
+  document.querySelector('.card-value p').innerHTML = cardNumber[randomCardNumber];
+  document.querySelector('.card').className = `card ${suit[randomSuitNumber]}`;
 }
 
+function counter(){
+  var tag = document.querySelector('.counter');
+  var num = parseInt(tag.innerHTML);
+  num = num-1;
+  if(num===0){
+    tag.innerHTML = 10;
+    randomCard();
+  }else{
+    tag.innerHTML = `0${num}`;
+  }
+}
 
-window.addEventListener("load", randomCard)
+function onClickRandom(){
+  randomCard();
+  let tag = document.querySelector('.counter');
+  tag.innerHTML = "10";
+}
+
+function onClickResize(){
+  let width = document.querySelector('#cardWidth').value;
+  let height = document.querySelector('#cardHeight').value;
+  let cardTag = document.querySelector('.card');
+  cardTag.style.width = width;
+  cardTag.style.height = height;
+}
 
 window.onload = function(){
-  
-    var cardNumber = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-    var suit = ["Diamonds", "Spades", "Hearts", "Clubs"];
-    var randomCardNumber = Math.floor(Math.random() * cardNumber.length);
-    var randomSuitNumber = Math.floor(Math.random() * suit.length);
-    var finalSuit = suit[randomSuitNumber];
-    
-    document.getElementById('cardContent').innerHTML = cardNumber[randomCardNumber];
-    document.getElementById('theCard').className = "";
-    document.getElementById('theCard').classList.add("card");
-    document.getElementById('theCard').classList.add(getSuiteClass(finalSuit));
-    
-  }
-  
-  function getSuiteClass(suit)
-  {
-    switch (suit) {
-      case "Diamonds": return "suit-diamonds"; break;
-      case "Spades": return "suit-spades"; break;
-      case "Hearts": return "suit-hearts"; break;
-      case "Clubs": return "suit-clubs"; break;
-    }
-  }
+    randomCard();
+    const myTimeout = setInterval(counter, 1000);
+    document.querySelector('#randomButton').onclick = onClickRandom;
+    document.querySelector('#resizeButton').onclick = onClickResize;
+}

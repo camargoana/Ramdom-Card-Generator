@@ -1,124 +1,109 @@
 body {
-    background: #008000;
-
+	background: #3fa03f;
 }
 
-.carta {
-    width: 350px;
-    height: 500px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 4px 4px 2px 0.7px rgba(0, 0, 0, 0.205);
-    margin: 20px auto;
+.card{
+    background-color: #FFFFFF;
+    height: 300px;
+    width: 220px;
+    border-radius: 10px;
+    position: relative;
 }
 
-#medio {
-    height: 60%;
+.card-value{
+    position: absolute;
+    height: 100%;
     width: 100%;
-    display: block;
+    font-size: 180px;
+}
+
+.card-value p{
+    margin: 0;
+    position: absolute;               /* 2 */
+    top: 45%;                         /* 3 */
+    transform: translate(0, -48%) ;
+    width: 100%;
     text-align: center;
 }
 
-#numero {
-    font-size: 16em;
-    padding: 0;
+.card-top, .card-bottom{
+    position: absolute;
+    font-size: 50px;
+    width:96%;
 }
 
-#picaArriba {
-    width: 100%;
-    height: 20%;
-    display: block;
+.card-top{  
+    text-align: left;
+    margin-left: 2%;
+    margin-top: -5px;
 }
 
-#picaAbajo {
-    width: 100%;
-    height: 20%;
-    display: block;
+.card-bottom{
+    text-align: right;
+    bottom: 0px;
 }
 
-
-/************** DIAMANTE ****************/
-
-.diamante .pica1::before {
-    content: "\2666";
-    font-size: 7em;
-    position: relative;
-    top: -10px;
-    left: 10px;
-    color: red;
+.heart, .diamond{
+    color: #FF0000;
 }
 
-.diamante .pica2::after {
-    content: "\2666";
-    font-size: 7em;
-    position: relative;
-    left: 75%;
-    bottom: 10px;
-    transform: rotate(180deg);
-    display: inline-block;
-    color: red;
+.heart > .card-top:before, .heart > .card-bottom:before{
+    content: '♥';
 }
 
-/************** CORAZON ****************/
-
-
-.corazon .pica1::before {
-    content: "\2665";
-    font-size: 7em;
-    position: relative;
-    top: -10px;
-    left: 10px;
-    color: red;
+.diamond .card-top:before, .diamond .card-bottom:before{
+    content: '♦';
 }
 
-.corazon .pica2::after {
-    content: "\2665";
-    font-size: 7em;
-    position: relative;
-    left: 75%;
-    bottom: 10px;
-    transform: rotate(180deg);
-    display: inline-block;
-    color: red;
+.club, .spade{
+    color: #000000;
 }
 
-/************** PICA ****************/
-
-.pica .pica1::before {
-    content: "\2660";
-    font-size: 7em;
-    position: relative;
-    top: -10px;
-    left: 10px;
+.club .card-top:before, .club .card-bottom:before{
+    content: '♣';
 }
 
-.pica .pica2::after {
-    content: "\2660";
-    font-size: 7em;
-    position: relative;
-    left: 75%;
-    bottom: 10px;
-    transform: rotate(180deg);
-    display: inline-block;
+.spade .card-top:before, .spade .card-bottom:before{
+    content: '♠';
 }
 
-/************** TREBOL ****************/
-
-.trebol .pica1::before {
-    content: "\2663";
-    font-size: 7em;
-    position: relative;
-    top: -10px;
-    left: 10px;
-
+.button{
+    background-color: rgb(238, 157, 8);
+    width: 220px;
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    margin-bottom: 25px;
 }
 
-.trebol .pica2::after {
-    content: "\2663";
-    font-size: 7em;
-    position: relative;
-    left: 75%;
-    bottom: 10px;
-    transform: rotate(180deg);
-    display: inline-block;
+.inputCard{
+    margin-bottom: 10px; 
+    position: relative; 
+    height: 35px;
+}
+
+.inputCard > .label{
+    position: absolute; 
+    z-index: 2; 
+    margin-top: 7px; 
+    margin-left: 10px; 
+    font-weight: bold;
+}
+
+.inputCard > .value{
+    position: absolute; 
+    z-index: 1;
+}
+
+.inputCard > .value > input{
+    width: 215px;
+    border-radius: 15px;
+    border: 1px solid #ffffff;
+    height: 30px;
+    outline: 0;
+    text-align: center;
+    font-size: 16px;
 }
